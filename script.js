@@ -20,7 +20,7 @@ class Calculator{
     if(isNaN(integerDigits)){
       integerDisplay = ''
     }else{
-      integerDisplay = integerDigits.toLocaleString('en',{
+      integerDisplay = integerDigits.toLocaleString('en', {
         maximumFractionDigits: 0,
       })
     }
@@ -31,7 +31,7 @@ class Calculator{
     }
   }
   delete(){
-    this.currentOperand = this.currentOperand.toString().slice(0,-1)
+    this.currentOperand = this.currentOperand.toString().slice(0, -1)
   }
   calculate(){
     let result
@@ -54,9 +54,9 @@ class Calculator{
       default:
         return
     }
-    this.operation = undefined
-    this.previousOperand = ''
     this.currentOperand = result
+    this.previousOperand = ''
+    this.operation = undefined
   }
   chooseOperation(operation){
     if(this.currentOperand === '') return
@@ -101,7 +101,7 @@ allClearButton.addEventListener('click', () => {
   calculator.clear()
   calculator.updateDisplay()
 })
-equalsButton.addEventListener('click',() => {
+equalsButton.addEventListener('click', () => {
   calculator.calculate()
   calculator.updateDisplay()
 })
@@ -109,3 +109,4 @@ deleteButton.addEventListener('click', () => {
   calculator.delete()
   calculator.updateDisplay()
 })
+
