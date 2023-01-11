@@ -31,7 +31,7 @@ class Calculator{
     }
   }
   delete(){
-    this.currentOperand = this.currentOperand.toString().slice(0, -1)
+    this.currentOperand = this.currentOperand.toString().slice(0,-1)
   }
   calculate(){
     let result
@@ -40,16 +40,16 @@ class Calculator{
     if(isNaN(_previousOperand) || isNaN(_currentOperand)) return
     switch(this.operation){
       case '+':
-        result = _previousOperand + _currentOperand
+        result = _currentOperand + _previousOperand
         break
       case '-':
-        result = _previousOperand - _currentOperand
-        break
-      case '*':
-        result = _previousOperand * _currentOperand
+        result = _currentOperand - _previousOperand
         break
       case '÷':
-        result = _previousOperand / _currentOperand
+        result = _currentOperand / _previousOperand
+        break
+      case '*':
+        result = _currentOperand * _previousOperand
         break
       default:
         return
@@ -92,21 +92,20 @@ for(const numberButton of numberButtons){
   })
 }
 for(const operationButton of operationButtons){
-  operationButton.addEventListener('click', () => {
+  operationButton.addEventListener('click',() => {
     calculator.chooseOperation(operationButton.innerHTML)
     calculator.updateDisplay()
   })
 }
-allClearButton.addEventListener('click', () => {
+allClearButton.addEventListener('click',() => {
   calculator.clear()
   calculator.updateDisplay()
 })
-equalsButton.addEventListener('click', () => {
+equalsButton.addEventListener('click',() => {
   calculator.calculate()
   calculator.updateDisplay()
 })
-deleteButton.addEventListener('click', () => {
+deleteButton.addEventListener('click',() => {
   calculator.delete()
   calculator.updateDisplay()
 })
-
