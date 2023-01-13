@@ -14,13 +14,13 @@ class Calculator{
   }
   formatDisplayNumber(number){
     const stringNumber = number.toString()
-    const integerDigits = parseFloat(stringNumber.split('.')[0])
+    const intergerDigits = parseFloat(stringNumber.split('.')[0])
     const decimalDigits = stringNumber.split('.')[1]
     let integerDisplay
-    if(isNaN(integerDigits)){
+    if(isNaN(intergerDigits)){
       integerDisplay = ''
     }else{
-      integerDisplay = integerDigits.toLocaleString('en', {
+      integerDisplay = intergerDigits.toLocaleString('en', {
         maximumFractionDigits: 0,
       })
     }
@@ -31,13 +31,14 @@ class Calculator{
     }
   }
   delete(){
-    this.currentOperand = this.currentOperand.toString().slice(0,-1)
+    this.currentOperand = this.currentOperand.toString().slice(0, -1)
   }
   calculate(){
     let result
     const _previousOperand = parseFloat(this.previousOperand)
     const _currentOperand = parseFloat(this.currentOperand)
-    if(isNaN(_previousOperand) || isNaN(_currentOperand)) return
+    if( isNaN(_currentOperand) || isNaN(_previousOperand)) return
+
     switch(this.operation){
       case '+':
         result = _currentOperand + _previousOperand
