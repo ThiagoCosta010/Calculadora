@@ -6,7 +6,7 @@ const allClearButton = document.querySelector("[data-all-clear]");
 const previousOperandTextElement = document.querySelector("[data-previous-operand]");
 const currentOperandTextElement = document.querySelector("[data-current-operand]");
 
-class Calculator{
+class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement){
     this.previousOperandTextElement = previousOperandTextElement
     this.currentOperandTextElement = currentOperandTextElement
@@ -14,13 +14,13 @@ class Calculator{
   }
   formatDisplayNumber(number){
     const stringNumber = number.toString()
-    const intergerDigits = parseFloat(stringNumber.split('.')[0])
+    const integerDigits = parseFloat(stringNumber.split('.')[0])
     const decimalDigits = stringNumber.split('.')[1]
     let integerDisplay
-    if(isNaN(intergerDigits)){
+    if(isNaN(integerDigits)){
       integerDisplay = ''
     }else{
-      integerDisplay = intergerDigits.toLocaleString('en', {
+      integerDisplay = integerDigits.toLocaleString('en', {
         maximumFractionDigits: 0,
       })
     }
@@ -37,20 +37,19 @@ class Calculator{
     let result
     const _previousOperand = parseFloat(this.previousOperand)
     const _currentOperand = parseFloat(this.currentOperand)
-    if( isNaN(_currentOperand) || isNaN(_previousOperand)) return
-
+    if(isNaN(_previousOperand) || isNaN(_currentOperand)) return
     switch(this.operation){
       case '+':
-        result = _currentOperand + _previousOperand
+        result = _previousOperand + _currentOperand
         break
       case '-':
-        result = _currentOperand - _previousOperand
+        result = _previousOperand - _currentOperand
         break
       case '÷':
-        result = _currentOperand / _previousOperand
+        result = _previousOperand / _currentOperand
         break
       case '*':
-        result = _currentOperand * _previousOperand
+        result = _previousOperand * _currentOperand
         break
       default:
         return
@@ -98,7 +97,7 @@ for(const operationButton of operationButtons){
     calculator.updateDisplay()
   })
 }
-allClearButton.addEventListener('click',() => {
+allClearButton.addEventListener('click', () => {
   calculator.clear()
   calculator.updateDisplay()
 })
@@ -106,7 +105,7 @@ equalsButton.addEventListener('click',() => {
   calculator.calculate()
   calculator.updateDisplay()
 })
-deleteButton.addEventListener('click',() => {
+deleteButton.addEventListener('click', () => {
   calculator.delete()
   calculator.updateDisplay()
 })
