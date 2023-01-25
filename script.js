@@ -86,13 +86,13 @@ const calculator = new Calculator(
   currentOperandTextElement
 )
 for(const numberButton of numberButtons){
-  numberButton.addEventListener('click',() => {
+  numberButton.addEventListener('click', () => {
     calculator.appendNumber(numberButton.innerHTML)
     calculator.updateDisplay()
   })
 }
 for(const operationButton of operationButtons){
-  operationButton.addEventListener('click',() => {
+  operationButton.addEventListener('click', () => {
     calculator.chooseOperation(operationButton.innerHTML)
     calculator.updateDisplay()
   })
@@ -101,7 +101,7 @@ allClearButton.addEventListener('click', () => {
   calculator.clear()
   calculator.updateDisplay()
 })
-equalsButton.addEventListener('click',() => {
+equalsButton.addEventListener('click', () => {
   calculator.calculate()
   calculator.updateDisplay()
 })
