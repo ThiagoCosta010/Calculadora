@@ -45,11 +45,11 @@ class Calculator {
       case '-':
         result = _previousOperand - _currentOperand
         break
-      case '÷':
-        result = _previousOperand / _currentOperand
-        break
       case '*':
         result = _previousOperand * _currentOperand
+        break
+      case '÷':
+        result = _previousOperand / _currentOperand
         break
       default:
         return
@@ -68,7 +68,7 @@ class Calculator {
     this.currentOperand = ''
   }
   appendNumber(number){
-    if(this.currentOperand.includes('.') && number === '. ') return
+    if(this.currentOperand.includes('.') && number === '.') return
     this.currentOperand = `${this.currentOperand}${number.toString()}`
   }
   clear(){
